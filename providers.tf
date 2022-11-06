@@ -7,6 +7,9 @@ terraform {
   }
   cloud {
     organization = "denniscastillo"
+    workspaces {
+        name = "dev_azure_terraform"
+    }
   }
 }
 
