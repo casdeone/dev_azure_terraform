@@ -1,4 +1,5 @@
 
+/*
 // azure storage account
 
 resource "azurerm_storage_account" "sargtest1000" {
@@ -30,6 +31,7 @@ resource "azurerm_eventhub" "shc_management_sub_activity_logs" {
   partition_count     = 2
   message_retention   = 1
 }
+*/
 
 /*
 data "azurerm_eventhub_namespace_authorization_rule" "rule_id" {
@@ -38,7 +40,7 @@ data "azurerm_eventhub_namespace_authorization_rule" "rule_id" {
   resource_group_name = data.azurerm_resource_group.rg_test.name
 }
 */
-
+/*
 resource "azurerm_eventhub_namespace_authorization_rule" "splunk_shared_access_key" {
   name                = "splunk-shared-access-key"
   namespace_name      = azurerm_eventhub_namespace.splunklogs_eventhub_ns.name
@@ -50,14 +52,16 @@ resource "azurerm_eventhub_namespace_authorization_rule" "splunk_shared_access_k
 
 
 }
+*/
+
 // azure diagnostic setting
 
 //use to refactor for dynamic log block -- in progress
-/* data "azurerm_monitor_diagnostic_categories" "subs" {
-    resource_id = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
+ /*data "azurerm_monitor_diagnostic_categories" "subs" {
+    resource_id = "/subscriptions/00a68851-3686-4442-9966-7ed17046b956/providers/microsoft.insights/diagnosticSettings/azure_monitor_diag"
 }
 */
-
+/*
 resource "azurerm_monitor_diagnostic_setting" "subscription" {
   name                           = "azure_monitor_diag"
   target_resource_id             = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
@@ -74,6 +78,7 @@ resource "azurerm_monitor_diagnostic_setting" "subscription" {
   }
  */
 
+/*
   // az monitor activity-log list-categories
   log {
     category = "Administrative"
@@ -113,8 +118,10 @@ resource "azurerm_monitor_diagnostic_setting" "subscription" {
   }
 
 }
+*/
 
 //spn role assignment
+/*
 data "azuread_service_principal" "spn_splunk_app" {
     display_name = "azure-cli-2022-11-06-03-25-57"
 }
@@ -122,4 +129,21 @@ resource "azurerm_role_assignment" "shc_splunk_app_ra" {
     scope = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
     role_definition_name = "Reader"
     principal_id = data.azuread_service_principal.spn_splunk_app.object_id
+}
+*/
+
+
+
+// azure require tagging policy
+// /providers/Microsoft.Authorization/policyDefinitions/871b6d14-10aa-478d-b590-94f262ecfa99
+// Require a tag on resources
+data "azurerm_management_group" "mg-management" {
+  display_name = "mg-root"
+  
+}
+
+resource "azurerm_management_group_policy_assignment" "shc_require_tags" {
+  name = "shc_require_tags"
+  management_group_id = data.azurerm_management_group.mg-management.id 
+  policy_definition_id = "/providers/Microsoft.Authorization/policyDefinitions/871b6d14-10aa-478d-b590-94f262ecfa99" 
 }
