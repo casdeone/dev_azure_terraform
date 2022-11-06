@@ -5,6 +5,9 @@ terraform {
       version = "3.30.0"
     }
   }
+  cloud {
+    organization = "denniscastillo"
+  }
 }
 
 provider "azurerm" {
