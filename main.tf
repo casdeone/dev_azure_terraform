@@ -164,6 +164,7 @@ PARAMS
 
 resource "azurerm_policy_definition" "shc_vm_require_tags_def" {
   name         = "shc_vm_require_tags_policy"
+  management_group_id = data.azurerm_management_group.mg-management.id
   policy_type  = "Custom"
   mode         = "All"
   display_name = "SHC Require a tag on vm resources"
