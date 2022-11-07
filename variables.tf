@@ -11,7 +11,7 @@ variable "tags" {
 }
 
 variable "required_tags"{
-  type =list
+  type =string
   description = "required tags"
-  default =["business_criticality","application","deployed_by"]
+  default ="business_criticality,application,deployed_by"
 }
