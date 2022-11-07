@@ -13,5 +13,5 @@ variable "tags" {
 variable "required_tags"{
   type =string
   description = "required tags"
-  default ="business_criticality,application,deployed_by"
+  default ="business_criticality,application,deployed_by,value_stream,responsible_group_manager,responsible_group_org_name"
 }
