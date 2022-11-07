@@ -156,7 +156,7 @@ resource "azurerm_management_group_policy_assignment" "shc_require_tags" {
   parameters = <<PARAMS
     {
       "tagName": {
-        "value": "${each.key}"
+        "value": "${var.required_tags}"
       }
     }
 PARAMS
