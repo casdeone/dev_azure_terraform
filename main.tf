@@ -148,16 +148,14 @@ data "azurerm_management_group" "mg-management" {
 }
 
 resource "azurerm_management_group_policy_assignment" "shc_require_tags" {
+   for_each = toset(var.required_tags)
   name = "shc_require_tags"
   management_group_id = data.azurerm_management_group.mg-management.id 
   policy_definition_id = data.azurerm_policy_definition.shc_policy_require_tags.id
   parameters = <<PARAMS
     {
       "tagName": {
-        "value": "environment"
-      },
-      "tagName": {
-        "value": "test_unit"
+        "value": "${each.key}"
       }
     }
 PARAMS
