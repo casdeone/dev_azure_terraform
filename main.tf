@@ -165,12 +165,12 @@ PARAMS
 resource "azurerm_policy_definition" "shc_vm_require_tags_def" {
   name         = "shc_vm_require_tags_policy"
   policy_type  = "Custom"
-  mode         = "Indexed"
+  mode         = "All"
   display_name = "SHC Require a tag on vm resources"
 
   metadata = <<METADATA
     {
-    "category": "General"
+    "category": "Tags"
     }
 
 METADATA
