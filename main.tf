@@ -137,6 +137,11 @@ resource "azurerm_role_assignment" "shc_splunk_app_ra" {
 // azure require tagging policy
 // /providers/Microsoft.Authorization/policyDefinitions/871b6d14-10aa-478d-b590-94f262ecfa99
 // Require a tag on resources
+
+data "azurerm_policy_definition" "shc_policy_require_tags" {
+  display_name = "Require a tag on resources"
+  
+}
 data "azurerm_management_group" "mg-management" {
   display_name = "mg-root"
   
@@ -145,5 +150,15 @@ data "azurerm_management_group" "mg-management" {
 resource "azurerm_management_group_policy_assignment" "shc_require_tags" {
   name = "shc_require_tags"
   management_group_id = data.azurerm_management_group.mg-management.id 
-  policy_definition_id = "/providers/Microsoft.Authorization/policyDefinitions/871b6d14-10aa-478d-b590-94f262ecfa99" 
+  policy_definition_id = data.azurerm_policy_definition.shc_policy_require_tags.id
+  parameters = <<PARAMS
+    {
+      "tagName": {
+        "value": "environment"
+      },
+      "tagName": {
+        "value": "test_unit"
+      }
+    }
+PARAMS
 }
