@@ -57,7 +57,7 @@ resource "azurerm_eventhub_namespace_authorization_rule" "splunk_shared_access_k
 // azure diagnostic setting
 
 //use to refactor for dynamic log block -- in progress
- /*data "azurerm_monitor_diagnostic_categories" "subs" {
+/*data "azurerm_monitor_diagnostic_categories" "subs" {
     resource_id = "/subscriptions/00a68851-3686-4442-9966-7ed17046b956/providers/microsoft.insights/diagnosticSettings/azure_monitor_diag"
 }
 */
@@ -140,23 +140,81 @@ resource "azurerm_role_assignment" "shc_splunk_app_ra" {
 
 data "azurerm_policy_definition" "shc_policy_require_tags" {
   display_name = "Require a tag on resources"
-  
+
 }
 data "azurerm_management_group" "mg-management" {
   display_name = "mg-root"
-  
+
 }
 
 resource "azurerm_management_group_policy_assignment" "shc_require_tags" {
   #for_each = toset(var.required_tags)
-  name = "shc_require_tags"
-  management_group_id = data.azurerm_management_group.mg-management.id 
+  name                 = "shc_require_tags"
+  management_group_id  = data.azurerm_management_group.mg-management.id
   policy_definition_id = data.azurerm_policy_definition.shc_policy_require_tags.id
   #for_each = toset(var.required_tags)
   parameters = <<PARAMS
     {
       "tagName": {
         "value": "${var.required_tags}"
+      }
+    }
+PARAMS
+}
+
+resource "azurerm_policy_definition" "shc_vm_require_tags_def" {
+  name         = "shc_vm_require_tags_policy"
+  policy_type  = "Custom"
+  mode         = "Indexed"
+  display_name = "SHC Require a tag on vm resources"
+
+  metadata = <<METADATA
+    {
+    "category": "General"
+    }
+
+METADATA
+
+  policy_rule = <<POLICY_RULE
+{
+    "if": {
+      "allOf":[
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/virtualMachines"
+          },
+          {
+          "field": "[concat('tags[', parameters('tagName'), ']')]",
+          "exists": "false"
+          }
+        ]
+        },
+        "then": {
+     "effect": "deny"
+    }
+  }
+  POLICY_RULE
+  parameters  = <<PARAMETERS
+   {
+      "tagName": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Tag Name",
+          "description": "Name of the tag, such as 'environment'"
+        }
+      }
+    }
+PARAMETERS
+}
+
+resource "azurerm_management_group_policy_assignment" "shc_vm_require_tags" {
+  name                 = "shc_vm_require_tags"
+  management_group_id  = data.azurerm_management_group.mg-management.id
+  policy_definition_id = azurerm_policy_definition .shc_vm_require_tags_def.id
+  parameters = <<PARAMS
+    {
+      "tagName": {
+        "value": "${var.vm_required_tags}"
       }
     }
 PARAMS

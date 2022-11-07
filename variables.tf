@@ -10,8 +10,19 @@ variable "tags" {
   }
 }
 
-variable "required_tags"{
-  type =string
+variable "required_tags" {
+  type        = string
   description = "required tags"
-  default ="business_criticality,application,deployed_by,value_stream,responsible_group_manager,responsible_group_org_name"
+  default     = "business_criticality,application,deployed_by,value_stream,responsible_group_manager,responsible_group_org_name"
+}
+
+variable "vm_required_tags" {
+  type        = string
+  description = "required tags"
+  default     = "backup,dns_name,shcappusage,shcsecuirtycompliance.data_classification"
+}
+
+variable "tfe_team_token" {
+  type        = string
+  description = "tfe team token"
 }
