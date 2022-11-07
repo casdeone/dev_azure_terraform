@@ -9,3 +9,9 @@ variable "tags" {
     "deplyed_by"                 = "dennis.castillo@sharp.com"
   }
 }
+
+variable "required_tags"{
+  type =list
+  description = "required tags"
+  default =["business_criticality","application","deployed_by"]
+}
