@@ -1,5 +1,5 @@
 
-/*
+
 // azure storage account
 
 resource "azurerm_storage_account" "sargtest1000" {
@@ -31,16 +31,16 @@ resource "azurerm_eventhub" "shc_management_sub_activity_logs" {
   partition_count     = 2
   message_retention   = 1
 }
-*/
 
-/*
+
+
 data "azurerm_eventhub_namespace_authorization_rule" "rule_id" {
   name                = "RootManageSharedAccessKey" // default name, created by eventhub namespace
   namespace_name      = azurerm_eventhub_namespace.splunklogs_eventhub_ns.name
   resource_group_name = data.azurerm_resource_group.rg_test.name
 }
-*/
-/*
+
+
 resource "azurerm_eventhub_namespace_authorization_rule" "splunk_shared_access_key" {
   name                = "splunk-shared-access-key"
   namespace_name      = azurerm_eventhub_namespace.splunklogs_eventhub_ns.name
@@ -52,7 +52,6 @@ resource "azurerm_eventhub_namespace_authorization_rule" "splunk_shared_access_k
 
 
 }
-*/
 
 // azure diagnostic setting
 
@@ -61,7 +60,7 @@ resource "azurerm_eventhub_namespace_authorization_rule" "splunk_shared_access_k
     resource_id = "/subscriptions/00a68851-3686-4442-9966-7ed17046b956/providers/microsoft.insights/diagnosticSettings/azure_monitor_diag"
 }
 */
-/*
+
 resource "azurerm_monitor_diagnostic_setting" "subscription" {
   name                           = "azure_monitor_diag"
   target_resource_id             = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
@@ -69,16 +68,16 @@ resource "azurerm_monitor_diagnostic_setting" "subscription" {
   eventhub_authorization_rule_id = azurerm_eventhub_namespace_authorization_rule.splunk_shared_access_key.id
   storage_account_id             = azurerm_storage_account.sargtest1000.id
 
-  /* used with data block to create dynamic block -- in progress
+  /*used with data block to create dynamic block -- in progress
   dynamic log {
     for_each = data.azurerm_monitor_diagnostic_categories.subs.logs
     content {
         category = log.value
     }
   }
- */
+  */
 
-/*
+
   // az monitor activity-log list-categories
   log {
     category = "Administrative"
@@ -118,19 +117,25 @@ resource "azurerm_monitor_diagnostic_setting" "subscription" {
   }
 
 }
-*/
+
 
 //spn role assignment
-/*
+
 data "azuread_service_principal" "spn_splunk_app" {
     display_name = "azure-cli-2022-11-06-03-25-57"
 }
-resource "azurerm_role_assignment" "shc_splunk_app_ra" {
+resource "azurerm_role_assignment" "shc_splunk_app_ra_reader" {
     scope = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
     role_definition_name = "Reader"
     principal_id = data.azuread_service_principal.spn_splunk_app.object_id
 }
-*/
+
+resource "azurerm_role_assignment" "shc_splunk_app_ra_a" {
+    scope = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
+    role_definition_name = "Azure Event Hubs Data Receiver"
+    principal_id = data.azuread_service_principal.spn_splunk_app.object_id
+}
+
 
 
 
