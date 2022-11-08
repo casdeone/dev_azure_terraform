@@ -29,10 +29,10 @@ variable "tfe_team_token" {
 
 variable "eventhub" {
   type =string
-  default = "casdeone_eventhub"
+  default = "casdeone-eventhub"
 }
 
 variable "eventhub_ns" {
   type = string
-  default = "casdeone_eventhub_ns"
+  default = "casdeone-eventhub-ns"
 }
