@@ -26,3 +26,13 @@ variable "tfe_team_token" {
   type        = string
   description = "tfe team token"
 }
+
+variable "eventhub" {
+  type =string
+  default = "casdeone_eventhub"
+}
+
+variable "eventhub_ns" {
+  type = string
+  default = "casdeone_eventhub_ns"
+}
