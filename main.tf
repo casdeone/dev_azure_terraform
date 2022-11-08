@@ -275,7 +275,7 @@ METADATA
 PARAMETERS
 }
 
-/*
+
 resource "azurerm_management_group_policy_assignment" "shc_vm_require_tags" {
   name                 = "shc_vm_require_tags"
   management_group_id  = data.azurerm_management_group.mg-management.id
@@ -288,4 +288,3 @@ resource "azurerm_management_group_policy_assignment" "shc_vm_require_tags" {
     }
 PARAMS
 }
-*/
