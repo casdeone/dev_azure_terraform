@@ -124,13 +124,13 @@ resource "azurerm_monitor_diagnostic_setting" "subscription" {
 data "azuread_service_principal" "spn_splunk_app" {
     display_name = "azure-cli-2022-11-06-03-25-57"
 }
-resource "azurerm_role_assignment" "shc_splunk_app_ra" {
+resource "azurerm_role_assignment" "shc_splunk_app_ra_reader" {
     scope = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
     role_definition_name = "Reader"
     principal_id = data.azuread_service_principal.spn_splunk_app.object_id
 }
 
-resource "azurerm_role_assignment" "shc_splunk_app_ra_a" {
+resource "azurerm_role_assignment" "shc_splunk_app_ra_data_reciever" {
     scope = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
     role_definition_name = "Azure Event Hubs Data Receiver"
     principal_id = data.azuread_service_principal.spn_splunk_app.object_id
