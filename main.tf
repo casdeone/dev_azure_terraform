@@ -124,7 +124,7 @@ resource "azurerm_monitor_diagnostic_setting" "subscription" {
 data "azuread_service_principal" "spn_splunk_app" {
     display_name = "azure-cli-2022-11-06-03-25-57"
 }
-resource "azurerm_role_assignment" "shc_splunk_app_ra_reader" {
+resource "azurerm_role_assignment" "shc_splunk_app_ra" {
     scope = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
     role_definition_name = "Reader"
     principal_id = data.azuread_service_principal.spn_splunk_app.object_id
@@ -227,42 +227,48 @@ METADATA
         "type": "String",
         "metadata": {
           "displayName": "Tag Name 1",
-          "description": "Name of the tag, such as 'environment'"
+          "description": "Name of the tag, such as 'environment'",
+          "defaultValue": "business_criticality"
         }
       },
       "tagName2": {
         "type": "String",
         "metadata": {
           "displayName": "Tag Name 2",
-          "description": "Name of the tag, such as 'environment'"
+          "description": "Name of the tag, such as 'environment'",
+          "defaultValue": "application"
         }
       },
       "tagName3": {
         "type": "String",
         "metadata": {
           "displayName": "Tag Name 3",
-          "description": "Name of the tag, such as 'environment'"
+          "description": "Name of the tag, such as 'environment'",
+          "defaultValue": "responsible_group_org_name"
         }
       },
       "tagName4": {
         "type": "String",
         "metadata": {
           "displayName": "Tag Name 4",
-          "description": "Name of the tag, such as 'environment'"
+          "description": "Name of the tag, such as 'environment'",
+          "defaultValue": "responsible_group_manager"
         }
       },
       "tagName5": {
         "type": "String",
         "metadata": {
           "displayName": "Tag Name 5",
-          "description": "Name of the tag, such as 'environment'"
+          "description": "Name of the tag, such as 'environment'",
+          "defaultValue": "value_stream"
         }
       },
       "tagName6": {
         "type": "String",
         "metadata": {
           "displayName": "Tag Name 6",
-          "description": "Name of the tag, such as 'environment'"
+          "description": "Name of the tag, such as 'environment'",
+          "defaultValue": "deployed_by"
         }
       }
     }
