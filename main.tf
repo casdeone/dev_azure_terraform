@@ -15,7 +15,7 @@ resource "azurerm_storage_account" "sargtest1000" {
 //azure eventhub
 
 resource "azurerm_eventhub_namespace" "splunklogs_eventhub_ns" {
-  name                = "splunklogs-eventhub"
+  name                = var.eventhub_ns
   location            = data.azurerm_resource_group.rg_test.location
   resource_group_name = data.azurerm_resource_group.rg_test.name
   sku                 = "Standard"
@@ -25,7 +25,7 @@ resource "azurerm_eventhub_namespace" "splunklogs_eventhub_ns" {
 }
 
 resource "azurerm_eventhub" "shc_management_sub_activity_logs" {
-  name                = "shc-management-sub-activiy-logs"
+  name                = var.eventhub
   namespace_name      = azurerm_eventhub_namespace.splunklogs_eventhub_ns.name
   resource_group_name = data.azurerm_resource_group.rg_test.name
   partition_count     = 2
