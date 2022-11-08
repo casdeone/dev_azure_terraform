@@ -19,7 +19,7 @@ variable "required_tags" {
 variable "vm_required_tags" {
   type        = string
   description = "required tags"
-  default     = "backup,dns_name,shcappusage,shcsecuirtycompliance.data_classification"
+  default     = "backup,dns_name,shcappusage,shcsecuirtycompliance,data_classification"
 }
 
 variable "tfe_team_token" {

@@ -151,7 +151,7 @@ data "azurerm_management_group" "mg-management" {
   display_name = "mg-root"
 
 }
-
+/*
 resource "azurerm_management_group_policy_assignment" "shc_require_tags" {
   #for_each = toset(var.required_tags)
   name                 = "shc_require_tags"
@@ -166,6 +166,7 @@ resource "azurerm_management_group_policy_assignment" "shc_require_tags" {
     }
 PARAMS
 }
+*/
 
 resource "azurerm_policy_definition" "shc_vm_require_tags_def" {
   name         = "shc_vm_require_tags_policy"
@@ -190,7 +191,27 @@ METADATA
             "equals": "Microsoft.Compute/virtualMachines"
           },
           {
-          "field": "[concat('tags[', parameters('tagName'), ']')]",
+          "field": "[concat('tags[', parameters('tagName1'), ']')]",
+          "exists": "false"
+          },
+          {
+          "field": "[concat('tags[', parameters('tagName2'), ']')]",
+          "exists": "false"
+          },
+          {
+          "field": "[concat('tags[', parameters('tagName3'), ']')]",
+          "exists": "false"
+          },
+          {
+          "field": "[concat('tags[', parameters('tagName4'), ']')]",
+          "exists": "false"
+          },
+          {
+          "field": "[concat('tags[', parameters('tagName5'), ']')]",
+          "exists": "false"
+          },
+          {
+          "field": "[concat('tags[', parameters('tagName6'), ']')]",
           "exists": "false"
           }
         ]
@@ -213,6 +234,7 @@ METADATA
 PARAMETERS
 }
 
+/*
 resource "azurerm_management_group_policy_assignment" "shc_vm_require_tags" {
   name                 = "shc_vm_require_tags"
   management_group_id  = data.azurerm_management_group.mg-management.id
@@ -225,3 +247,4 @@ resource "azurerm_management_group_policy_assignment" "shc_vm_require_tags" {
     }
 PARAMS
 }
+*/
