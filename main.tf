@@ -275,15 +275,30 @@ METADATA
 PARAMETERS
 }
 
-
+//test
 resource "azurerm_management_group_policy_assignment" "shc_vm_require_tags" {
   name                 = "shc_vm_require_tags"
   management_group_id  = data.azurerm_management_group.mg-management.id
   policy_definition_id = azurerm_policy_definition .shc_vm_require_tags_def.id
   parameters = <<PARAMS
     {
-      "tagName": {
-        "value": "${var.vm_required_tags}"
+      "tagName1": {
+        "value": "business_criticality"
+      },
+       "tagName2": {
+        "value": "application"
+      },
+       "tagName3": {
+        "value": "responsible_group_manager"
+      },
+       "tagName4": {
+        "value": "responsible_group_org_name"
+      },
+       "tagName5": {
+        "value": "deployed_by"
+      },
+       "tagName6": {
+        "value": "value_stream"
       }
     }
 PARAMS
