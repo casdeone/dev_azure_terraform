@@ -1,3 +1,4 @@
+// create vm
 variable "prefix" {
   default = "tfvmex"
 }
