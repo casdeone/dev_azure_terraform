@@ -42,10 +42,10 @@ resource "azurerm_virtual_machine" "main" {
   vm_size               = "Standard_DS1_v2"
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
-   delete_os_disk_on_termination = true
+  delete_os_disk_on_termination = true
 
   # Uncomment this line to delete the data disks automatically when deleting the VM
-   delete_data_disks_on_termination = true
+  delete_data_disks_on_termination = true
 
   storage_image_reference {
     publisher = "Canonical"
@@ -67,11 +67,11 @@ resource "azurerm_virtual_machine" "main" {
   os_profile_linux_config {
     disable_password_authentication = false
   }
-  tags = merge(var.tags,{
+  tags = merge(var.tags, {
     environment = "staging"
   })
   depends_on = [
-        azurerm_management_group_policy_assignment.shc_vm_require_tags
+    azurerm_management_group_policy_assignment.shc_vm_require_tags
 
   ]
 }

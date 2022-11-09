@@ -28,11 +28,17 @@ variable "tfe_team_token" {
 }
 
 variable "eventhub" {
-  type =string
+  type    = string
   default = "casdeone-eventhub"
 }
 
 variable "eventhub_ns" {
-  type = string
+  type    = string
   default = "casdeone-eventhub-ns"
+}
+
+variable "location" {
+  type        = string
+  description = "location"
+  default     = "West US 3"
 }
