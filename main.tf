@@ -67,6 +67,7 @@ resource "azurerm_monitor_diagnostic_setting" "subscription" {
   eventhub_name                  = azurerm_eventhub.shc_management_sub_activity_logs.name
   eventhub_authorization_rule_id = azurerm_eventhub_namespace_authorization_rule.splunk_shared_access_key.id
   storage_account_id             = azurerm_storage_account.sargtest1000.id
+  log_analytics_workspace_id     = azurerm_log_analytics_workspace.casdeone_law.id
 
   /*used with data block to create dynamic block -- in progress
   dynamic log {
@@ -122,18 +123,18 @@ resource "azurerm_monitor_diagnostic_setting" "subscription" {
 //spn role assignment
 
 data "azuread_service_principal" "spn_splunk_app" {
-    display_name = "azure-cli-2022-11-06-03-25-57"
+  display_name = "azure-cli-2022-11-06-03-25-57"
 }
 resource "azurerm_role_assignment" "shc_splunk_app_ra_reader" {
-    scope = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
-    role_definition_name = "Reader"
-    principal_id = data.azuread_service_principal.spn_splunk_app.object_id
+  scope                = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
+  role_definition_name = "Reader"
+  principal_id         = data.azuread_service_principal.spn_splunk_app.object_id
 }
 
 resource "azurerm_role_assignment" "shc_splunk_app_ra_data_reciever" {
-    scope = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
-    role_definition_name = "Azure Event Hubs Data Receiver"
-    principal_id = data.azuread_service_principal.spn_splunk_app.object_id
+  scope                = "/subscriptions/${data.azurerm_client_config.current.subscription_id}"
+  role_definition_name = "Azure Event Hubs Data Receiver"
+  principal_id         = data.azuread_service_principal.spn_splunk_app.object_id
 }
 
 
@@ -169,22 +170,22 @@ PARAMS
 */
 
 resource "azurerm_policy_definition" "shc_vm_require_tags_def" {
-  name         = "shc_vm_require_tags_policy"
+  name                = "shc_vm_require_tags_policy"
   management_group_id = data.azurerm_management_group.mg-management.id
-  policy_type  = "Custom"
-  mode         = "All"
-  display_name = "SHC Require a tag on vm resources"
-  metadata = file("./policy_definitions/vm_require_tags/metadata.json")
-  policy_rule = file("./policy_definitions/vm_require_tags/policy_rule.json")
-  parameters  = file("./policy_definitions/vm_require_tags/parameters.json")
+  policy_type         = "Custom"
+  mode                = "All"
+  display_name        = "SHC Require a tag on vm resources"
+  metadata            = file("./policy_definitions/vm_require_tags/metadata.json")
+  policy_rule         = file("./policy_definitions/vm_require_tags/policy_rule.json")
+  parameters          = file("./policy_definitions/vm_require_tags/parameters.json")
 }
 
 
 resource "azurerm_management_group_policy_assignment" "shc_vm_require_tags" {
   name                 = "shc_vm_require_tags"
   management_group_id  = data.azurerm_management_group.mg-management.id
-  policy_definition_id = azurerm_policy_definition .shc_vm_require_tags_def.id
-  parameters = <<PARAMS
+  policy_definition_id = azurerm_policy_definition.shc_vm_require_tags_def.id
+  parameters           = <<PARAMS
     {
       "tagName1": {
         "value": "business_criticality"
