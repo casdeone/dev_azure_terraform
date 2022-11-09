@@ -4,7 +4,6 @@
       "metadata": {
         "displayName": "Tag Name 1",
         "description": "Name of the tag, such as 'environment'",
-        "defaultValue": "business_criticality"
       }
     },
     "tagName2": {
@@ -12,7 +11,6 @@
       "metadata": {
         "displayName": "Tag Name 2",
         "description": "Name of the tag, such as 'environment'",
-        "defaultValue": "application"
       }
     },
     "tagName3": {
@@ -20,7 +18,6 @@
       "metadata": {
         "displayName": "Tag Name 3",
         "description": "Name of the tag, such as 'environment'",
-        "defaultValue": "responsible_group_org_name"
       }
     },
     "tagName4": {
@@ -28,7 +25,6 @@
       "metadata": {
         "displayName": "Tag Name 4",
         "description": "Name of the tag, such as 'environment'",
-        "defaultValue": "responsible_group_manager"
       }
     },
     "tagName5": {
@@ -36,7 +32,6 @@
       "metadata": {
         "displayName": "Tag Name 5",
         "description": "Name of the tag, such as 'environment'",
-        "defaultValue": "value_stream"
       }
     },
     "tagName6": {
@@ -44,7 +39,6 @@
       "metadata": {
         "displayName": "Tag Name 6",
         "description": "Name of the tag, such as 'environment'",
-        "defaultValue": "deployed_by"
       }
     }
   }
