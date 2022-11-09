@@ -174,108 +174,12 @@ resource "azurerm_policy_definition" "shc_vm_require_tags_def" {
   policy_type  = "Custom"
   mode         = "All"
   display_name = "SHC Require a tag on vm resources"
-
-  metadata = <<METADATA
-    {
-    "category": "Tags"
-    }
-
-METADATA
-
-  policy_rule = <<POLICY_RULE
-{
-    "if": {
-      "allOf":[
-          {
-            "field": "type",
-            "equals": "Microsoft.Compute/virtualMachines"
-          },
-          {
-          "field": "[concat('tags[', parameters('tagName1'), ']')]",
-          "exists": "false"
-          },
-          {
-          "field": "[concat('tags[', parameters('tagName2'), ']')]",
-          "exists": "false"
-          },
-          {
-          "field": "[concat('tags[', parameters('tagName3'), ']')]",
-          "exists": "false"
-          },
-          {
-          "field": "[concat('tags[', parameters('tagName4'), ']')]",
-          "exists": "false"
-          },
-          {
-          "field": "[concat('tags[', parameters('tagName5'), ']')]",
-          "exists": "false"
-          },
-          {
-          "field": "[concat('tags[', parameters('tagName6'), ']')]",
-          "exists": "false"
-          }
-        ]
-        },
-        "then": {
-     "effect": "deny"
-    }
-  }
-  POLICY_RULE
-  parameters  = <<PARAMETERS
-   {
-      "tagName1": {
-        "type": "String",
-        "metadata": {
-          "displayName": "Tag Name 1",
-          "description": "Name of the tag, such as 'environment'",
-          "defaultValue": "business_criticality"
-        }
-      },
-      "tagName2": {
-        "type": "String",
-        "metadata": {
-          "displayName": "Tag Name 2",
-          "description": "Name of the tag, such as 'environment'",
-          "defaultValue": "application"
-        }
-      },
-      "tagName3": {
-        "type": "String",
-        "metadata": {
-          "displayName": "Tag Name 3",
-          "description": "Name of the tag, such as 'environment'",
-          "defaultValue": "responsible_group_org_name"
-        }
-      },
-      "tagName4": {
-        "type": "String",
-        "metadata": {
-          "displayName": "Tag Name 4",
-          "description": "Name of the tag, such as 'environment'",
-          "defaultValue": "responsible_group_manager"
-        }
-      },
-      "tagName5": {
-        "type": "String",
-        "metadata": {
-          "displayName": "Tag Name 5",
-          "description": "Name of the tag, such as 'environment'",
-          "defaultValue": "value_stream"
-        }
-      },
-      "tagName6": {
-        "type": "String",
-        "metadata": {
-          "displayName": "Tag Name 6",
-          "description": "Name of the tag, such as 'environment'",
-          "defaultValue": "deployed_by"
-        }
-      }
-    }
-PARAMETERS
+  metadata = file("./policy_definitions/vm_require_tags/metadata.json")
+  policy_rule = file("./policy_definitions/vm_require_tags/policy_rule.json")
+  parameters  = file("./policy_definitions/vm_require_tags/parameters.json")
 }
 
-//test
+
 resource "azurerm_management_group_policy_assignment" "shc_vm_require_tags" {
   name                 = "shc_vm_require_tags"
   management_group_id  = data.azurerm_management_group.mg-management.id
