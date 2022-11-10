@@ -76,6 +76,6 @@
         ]
     },
     "then": {
-        "effect": "[parameters('effect')]"
+        "effect": "deny"
     }  
 }

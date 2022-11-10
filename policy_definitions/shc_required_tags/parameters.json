@@ -40,17 +40,5 @@
         "displayName": "Tag Name 6",
         "description": "Name of the tag, such as 'environment'"
       }
-    },
-    "effect": {
-        "type": "String",
-        "metadata": {
-          "displayName": "Effect",
-          "description": "The effect determines what happens when the policy rule is evaluated to match"
-        },
-        "allowedValues": [
-          "Audit",
-          "Deny"
-        ],
-        "defaultValue": "Audit"
-      }
+    }
 }

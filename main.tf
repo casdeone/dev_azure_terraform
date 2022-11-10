@@ -173,7 +173,7 @@ resource "azurerm_policy_definition" "shc_vm_require_tags_def" {
   name                = "shc_vm_require_tags_policy"
   management_group_id = data.azurerm_management_group.mg-management.id
   policy_type         = "Custom"
-  mode                = "All"
+  mode                = "Indexed"
   display_name        = "SHC Require a tag on vm resources"
   metadata            = file("./policy_definitions/shc_vm_required_tags/metadata.json")
   policy_rule         = file("./policy_definitions/shc_vm_required_tags/policy_rule.json")
@@ -181,12 +181,66 @@ resource "azurerm_policy_definition" "shc_vm_require_tags_def" {
 }
 
 
-resource "azurerm_management_group_policy_assignment" "shc_vm_require_tags" {
+resource "azurerm_policy_definition" "shc_require_tags_def" {
   name                 = "shc_vm_require_tags"
   management_group_id  = data.azurerm_management_group.mg-management.id
-  policy_definition_id = azurerm_policy_definition.shc_vm_require_tags_def.id
+  mode                = "Indexed"
+  policy_type         = "Custom"
+  display_name        = "SHC Require a tag on resources"
   metadata             = file("./policy_definitions/shc_required_tags/metadata.json")
-  parameters           = file("./policy_definitions/shc_required_tags/parameters.json")
   policy_rule          = file("./policy_definitions/shc_required_tags/policy_rule.json")
+  parameters           = file("./policy_definitions/shc_required_tags/parameters.json")
+}
 
+resource "azurerm_management_group_policy_assignment" "vm_policy" {
+  name                 = "vm-policy"
+  policy_definition_id = azurerm_policy_definition.shc_vm_require_tags_def.id
+  management_group_id  = data.azurerm_management_group.mg-management.id
+  parameters           = <<PARAMS
+    {
+      "tagName1": {
+        "value": "backup"
+      },
+       "tagName2": {
+        "value": "dns_name"
+      },
+       "tagName3": {
+        "value": "shcappusage"
+      },
+       "tagName4": {
+        "value": "shcsecuirtycompliance"
+      },
+       "tagName5": {
+        "value": "data_classification"
+      }
+    }
+PARAMS
+}
+
+resource "azurerm_management_group_policy_assignment" "required_policy" {
+  name                 = "vm-policy"
+  policy_definition_id = azurerm_policy_definition.shc_require_tags_def.id
+  management_group_id  = data.azurerm_management_group.mg-management.id
+  parameters           = <<PARAMS
+    {
+      "tagName1": {
+        "value": "business_criticality"
+      },
+       "tagName2": {
+        "value": "application"
+      },
+       "tagName3": {
+        "value": "responsible_group_manager"
+      },
+       "tagName4": {
+        "value": "responsible_group_org_name"
+      },
+       "tagName5": {
+        "value": "deployed_by"
+      },
+       "tagName6": {
+        "value": "value_stream"
+      }
+    }
+PARAMS
 }
