@@ -6,6 +6,9 @@ variable "prefix" {
 resource "azurerm_resource_group" "example" {
   name     = "${var.prefix}-resources"
   location = "West US 3"
+  tags = merge(var.tags, {
+    environment = "staging"
+  })
 }
 
 resource "azurerm_virtual_network" "main" {
@@ -13,6 +16,9 @@ resource "azurerm_virtual_network" "main" {
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.example.location
   resource_group_name = data.azurerm_resource_group.rg_test.name
+   tags = merge(var.tags, {
+    environment = "staging"
+  })
 }
 
 resource "azurerm_subnet" "internal" {
@@ -20,6 +26,7 @@ resource "azurerm_subnet" "internal" {
   resource_group_name  = data.azurerm_resource_group.rg_test.name
   virtual_network_name = azurerm_virtual_network.main.name
   address_prefixes     = ["10.0.2.0/24"]
+ 
 }
 
 resource "azurerm_network_interface" "main" {
@@ -32,6 +39,9 @@ resource "azurerm_network_interface" "main" {
     subnet_id                     = azurerm_subnet.internal.id
     private_ip_address_allocation = "Dynamic"
   }
+  tags = merge(var.tags, {
+    environment = "staging"
+  })
 }
 
 resource "azurerm_virtual_machine" "main" {
