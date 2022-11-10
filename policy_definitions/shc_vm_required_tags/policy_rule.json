@@ -28,28 +28,28 @@
           {
             "field": "[concat('tags[', parameters('tagName6'), ']')]",
             "exists": "false"
-        },
-        {
+          },
+          {
             "field": "[concat('tags[', parameters('tagName7'), ']')]",
             "exists": "false"
-        },
-        {
+          },
+          {
             "field": "[concat('tags[', parameters('tagName8'), ']')]",
             "exists": "false"
-        },
-        {
+          },
+          {
             "field": "[concat('tags[', parameters('tagName9'), ']')]",
             "exists": "false"
-        },
-        {
+          },
+          {
             "field": "[concat('tags[', parameters('tagName10'), ']')]",
             "exists": "false"
-        },
-        {
+          },
+          {
             "field": "[concat('tags[', parameters('tagName11'), ']')]",
             "exists": "false"
-        }
-        ]
+          }
+          ]
         },
         "then": {
           "effect": "[parameters('effect')]"

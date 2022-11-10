@@ -220,7 +220,7 @@ PARAMS
 */
 }
 
-
+#test
 resource "azurerm_management_group_policy_assignment" "required_policy" {
   name                 = "required-policy"
   policy_definition_id = azurerm_policy_definition.shc_require_tags_def.id
