@@ -188,3 +188,5 @@ resource "azurerm_management_group_policy_assignment" "shc_vm_require_tags" {
   metadata             = file("./policy_definitions/shc_require_tags/metadata.json")
   parameters           = file("./policy_definitions/shc_require_tags/parameters.json")
   policy_rule = file("./policy_definitions/shc_require_tags/policy_rule.json")
+
+}
