@@ -14,7 +14,7 @@
            "tagName5": {
             "value": "data_classification"
           },
-          "Effect": {
+          "effect": {
             "value": "Deny"
           }
 }
