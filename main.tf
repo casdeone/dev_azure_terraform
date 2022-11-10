@@ -175,9 +175,9 @@ resource "azurerm_policy_definition" "shc_vm_require_tags_def" {
   policy_type         = "Custom"
   mode                = "All"
   display_name        = "SHC Require a tag on vm resources"
-  metadata            = file("./policy_definitions/shc_vm_require_tags/metadata.json")
-  policy_rule         = file("./policy_definitions/shc_vm_require_tags/policy_rule.json")
-  parameters          = file("./policy_definitions/shc_vm_require_tags/parameters.json")
+  metadata            = file("./policy_definitions/shc_vm_required_tags/metadata.json")
+  policy_rule         = file("./policy_definitions/shc_vm_required_tags/policy_rule.json")
+  parameters          = file("./policy_definitions/shc_vm_required_tags/parameters.json")
 }
 
 
