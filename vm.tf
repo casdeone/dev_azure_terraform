@@ -72,6 +72,5 @@ resource "azurerm_virtual_machine" "main" {
   })
   depends_on = [
     azurerm_management_group_policy_assignment.shc_vm_require_tags
-
   ]
 }
