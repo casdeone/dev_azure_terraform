@@ -13,8 +13,5 @@
           },
            "tagName5": {
             "value": "data_classification"
-          },
-          "effect": {
-            "value": "Deny"
           }
 }
