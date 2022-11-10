@@ -1,0 +1,25 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        
+            "tagName1": {
+              "value": "business_criticality"
+            },
+             "tagName2": {
+              "value": "application"
+            },
+             "tagName3": {
+              "value": "responsible_group_manager"
+            },
+             "tagName4": {
+              "value": "responsible_group_org_name"
+            },
+             "tagName5": {
+              "value": "deployed_by"
+            },
+             "tagName6": {
+              "value": "value_stream"
+            }
+          }
+}
