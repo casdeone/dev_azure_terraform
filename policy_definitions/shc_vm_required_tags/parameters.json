@@ -3,35 +3,77 @@
       "type": "String",
       "metadata": {
         "displayName": "Required Tag Name 1",
-        "description": "Name of the tag, such as 'environment'"
+        "description": "SHC VM required tag"
       }
     },
     "tagName2": {
       "type": "String",
       "metadata": {
         "displayName": "Required Tag Name 2",
-        "description": "Name of the tag, such as 'environment'"
+        "description": "SHC VM required tag"
       }
     },
     "tagName3": {
       "type": "String",
       "metadata": {
         "displayName": "Required Tag Name 3",
-        "description": "Name of the tag, such as 'environment'"
+        "description": "SHC VM required tag"
       }
     },
     "tagName4": {
       "type": "String",
       "metadata": {
         "displayName": "Required Tag Name 4",
-        "description": "Name of the tag, such as 'environment'"
+        "description": "SHC VM required tag"
       }
     },
     "tagName5": {
       "type": "String",
       "metadata": {
         "displayName": "Required Tag Name5",
-        "description": "Name of the tag, such as 'environment'"
+        "description": "SHC VM required tag"
+      }
+    },
+    "tagName6": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name 1",
+        "description": "SHC VM required tag"
+      }
+    },
+    "tagName7": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name 2",
+        "description": "SHC VM required tag"
+      }
+    },
+    "tagName7": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name 3",
+        "description": "SHC VM required tag"
+      }
+    },
+    "tagName9": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name 4",
+        "description": "SHC VM required tag"
+      }
+    },
+    "tagName10": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name 5",
+        "description": "SHC VM required tag"
+      }
+    },
+    "tagName11": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name 6",
+        "description": "SHC VM required tag"
       }
     },
     "effect": {
