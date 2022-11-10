@@ -86,7 +86,7 @@
         "Audit",
         "Deny"
       ],
-      "defaultValue": "Deny"
+      "defaultValue": "Audit"
     }
 }
   
