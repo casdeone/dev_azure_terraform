@@ -10,6 +10,18 @@ variable "tags" {
   }
 }
 
+variable "vm_tags" {
+  type = map(string)
+  default = {
+    "backup              "       = "yes",
+    "dns_name"                   = "vm.casdeone.com",
+    "shcappusage"                = "imaging",
+    "shcsecuirtycompliance"      = "yes",
+    "responsible_group_org_name" = "dts",
+    "data_classification"        = "private"
+  }
+}
+
 variable "required_tags" {
   type        = string
   description = "required tags"
