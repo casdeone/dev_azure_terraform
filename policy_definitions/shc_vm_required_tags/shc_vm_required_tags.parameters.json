@@ -1,5 +1,4 @@
 {
-    "parameters": {
         "tagName1": {
             "value": "backup"
           },
@@ -15,5 +14,4 @@
            "tagName5": {
             "value": "data_classification"
           }
-        }
 }
