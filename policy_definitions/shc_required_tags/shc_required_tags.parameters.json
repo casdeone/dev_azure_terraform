@@ -17,7 +17,7 @@
              "tagName6": {
               "value": "value_stream"
             },
-            "Effect": {
+            "effect": {
                 "value": "Audit"
               }
      
