@@ -1,4 +1,5 @@
 // create vm
+/*
 variable "prefix" {
   default = "tfvmex"
 }
@@ -71,3 +72,4 @@ resource "azurerm_virtual_machine" "main" {
     environment = "staging"
   })
 }
+*/
