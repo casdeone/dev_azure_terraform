@@ -1,0 +1,61 @@
+{
+    "if": {
+        "allOf":[
+            {
+                "field": "[concat('tags[', parameters('tagName'), ']')]",
+                "exists": "false"
+            },
+            {
+                "field": "type",
+                "notEquals": "Microsoft.Compute/virtualMachines/extensions"
+            },
+            {
+                "field": "type",
+                "notEquals": "Microsoft.Web/certificates"
+            },
+            {
+                "field": "type",
+                "notEquals": "microsoft.insights/metricAlerts"
+            },
+            {
+                "field": "type",
+                "notEquals": "microsoft.insights/actionGroups"
+            },
+            {
+                "field": "type",
+                "notEquals": "Microsoft.Compute/snapshots"
+            },
+            {
+                "field": "type",
+                "notEquals": "Microsoft.AlertsManagement/actionRules"
+            },
+            {
+                "field": "type",
+                "notEquals": "microsoft.insights/metricAlerts"
+            },
+            {
+                "field": "type",
+                "notEquals": "microsoft.insights/components"
+            },
+            {
+                "field": "type",
+                "notEquals": "Microsoft.ContainerRegistry/registries"
+            },
+            {
+                "field": "type",
+                "notEquals": "microsoft.insights/actionGroups"
+            },
+            {
+                "field": "type",
+                "notEquals": "microsoft.alertsmanagement/smartdetectoralertrules"
+            },
+            {
+                "field": "type",
+                "notEquals": "microsoft.insights/autoscalesettings"
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }  
+}
