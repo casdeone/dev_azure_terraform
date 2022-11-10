@@ -13,7 +13,7 @@ variable "tags" {
 variable "vm_tags" {
   type = map(string)
   default = {
-    "backup              "       = "yes",
+    #"backup              "       = "yes",
     "dns_name"                   = "vm.casdeone.com",
     "shcappusage"                = "imaging",
     "shcsecuirtycompliance"      = "yes",
