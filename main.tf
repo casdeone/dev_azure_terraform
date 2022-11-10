@@ -171,7 +171,7 @@ PARAMS
 
 resource "azurerm_policy_definition" "shc_vm_require_tags_def" {
   name                = "shc_vm_require_tags_policy"
-  #management_group_id = data.azurerm_management_group.mg-management.id
+  management_group_id = data.azurerm_management_group.mg-management.id
   policy_type         = "Custom"
   mode                = "Indexed"
   display_name        = "SHC Require a tag on vm resources"
@@ -183,7 +183,7 @@ resource "azurerm_policy_definition" "shc_vm_require_tags_def" {
 
 resource "azurerm_policy_definition" "shc_require_tags_def" {
   name                = "shc_vm_require_tags"
-  #management_group_id = data.azurerm_management_group.mg-management.id
+  management_group_id = data.azurerm_management_group.mg-management.id
   mode                = "Indexed"
   policy_type         = "Custom"
   display_name        = "SHC Require a tag on resources"
