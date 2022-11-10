@@ -13,5 +13,23 @@
           },
            "tagName5": {
             "value": "data_classification"
+          },
+          "tagName6": {
+            "value": "business_criticality"
+          },
+           "tagName7": {
+            "value": "application"
+          },
+           "tagName8": {
+            "value": "responsible_group_manager"
+          },
+           "tagName9": {
+            "value": "responsible_group_org_name"
+          },
+           "tagName10": {
+            "value": "deployed_by"
+          },
+           "tagName11": {
+            "value": "value_stream"
           }
 }
