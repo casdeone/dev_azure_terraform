@@ -196,6 +196,8 @@ resource "azurerm_management_group_policy_assignment" "vm_policy" {
   name                 = "vm-policy"
   policy_definition_id = azurerm_policy_definition.shc_vm_require_tags_def.id
   management_group_id  = data.azurerm_management_group.mg-management.id
+  parameters = file("./policy_definitions/shc_vm_required_tags/shc_vm_required_tags.parameters.json")
+  /*
   parameters           = <<PARAMS
     {
       "tagName1": {
@@ -215,12 +217,17 @@ resource "azurerm_management_group_policy_assignment" "vm_policy" {
       }
     }
 PARAMS
+*/
 }
+
 
 resource "azurerm_management_group_policy_assignment" "required_policy" {
   name                 = "required-policy"
   policy_definition_id = azurerm_policy_definition.shc_require_tags_def.id
   management_group_id  = data.azurerm_management_group.mg-management.id
+  parameters = file("./policy_definitions/shc_required_tags/shc_required_tags.parameters.json")
+  
+  /*
   parameters           = <<PARAMS
     {
       "tagName1": {
@@ -243,4 +250,5 @@ resource "azurerm_management_group_policy_assignment" "required_policy" {
       }
     }
 PARAMS
+*/
 }
