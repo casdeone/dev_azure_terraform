@@ -1,4 +1,5 @@
 // create vm
+/*
 variable "prefix" {
   default = "tfvmex"
 }
@@ -75,3 +76,4 @@ resource "azurerm_virtual_machine" "main" {
     azurerm_policy_definition.shc_vm_require_tags_def
   ]
 }
+*/
