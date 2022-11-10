@@ -1,0 +1,44 @@
+{
+    "tagName1": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name 1",
+        "description": "Name of the tag, such as 'environment'"
+      }
+    },
+    "tagName2": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name 2",
+        "description": "Name of the tag, such as 'environment'"
+      }
+    },
+    "tagName3": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name 3",
+        "description": "Name of the tag, such as 'environment'"
+      }
+    },
+    "tagName4": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name 4",
+        "description": "Name of the tag, such as 'environment'"
+      }
+    },
+    "tagName5": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name 5",
+        "description": "Name of the tag, such as 'environment'"
+      }
+    },
+    "tagName6": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name 6",
+        "description": "Name of the tag, such as 'environment'"
+      }
+    }
+  }
