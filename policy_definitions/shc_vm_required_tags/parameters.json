@@ -2,28 +2,28 @@
     "tagName1": {
       "type": "String",
       "metadata": {
-        "displayName": "Required Tag Name 1",
+        "displayName": "Required Tag Name1",
         "description": "SHC VM required tag"
       }
     },
     "tagName2": {
       "type": "String",
       "metadata": {
-        "displayName": "Required Tag Name 2",
+        "displayName": "Required Tag Name2",
         "description": "SHC VM required tag"
       }
     },
     "tagName3": {
       "type": "String",
       "metadata": {
-        "displayName": "Required Tag Name 3",
+        "displayName": "Required Tag Name3",
         "description": "SHC VM required tag"
       }
     },
     "tagName4": {
       "type": "String",
       "metadata": {
-        "displayName": "Required Tag Name 4",
+        "displayName": "Required Tag Name4",
         "description": "SHC VM required tag"
       }
     },
@@ -37,42 +37,42 @@
     "tagName6": {
       "type": "String",
       "metadata": {
-        "displayName": "Tag Name 1",
+        "displayName": "Tag Name6",
         "description": "SHC VM required tag"
       }
     },
     "tagName7": {
       "type": "String",
       "metadata": {
-        "displayName": "Tag Name 2",
+        "displayName": "Tag Name7",
         "description": "SHC VM required tag"
       }
     },
-    "tagName7": {
+    "tagName8": {
       "type": "String",
       "metadata": {
-        "displayName": "Tag Name 3",
+        "displayName": "Tag Name8",
         "description": "SHC VM required tag"
       }
     },
     "tagName9": {
       "type": "String",
       "metadata": {
-        "displayName": "Tag Name 4",
+        "displayName": "Tag Name9",
         "description": "SHC VM required tag"
       }
     },
     "tagName10": {
       "type": "String",
       "metadata": {
-        "displayName": "Tag Name 5",
+        "displayName": "Tag Name10",
         "description": "SHC VM required tag"
       }
     },
     "tagName11": {
       "type": "String",
       "metadata": {
-        "displayName": "Tag Name 6",
+        "displayName": "Tag Name11",
         "description": "SHC VM required tag"
       }
     },
