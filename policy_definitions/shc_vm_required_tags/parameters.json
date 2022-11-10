@@ -2,36 +2,49 @@
     "tagName1": {
       "type": "String",
       "metadata": {
-        "displayName": "Tag Name 1",
+        "displayName": "Required Tag Name 1",
         "description": "Name of the tag, such as 'environment'"
       }
     },
     "tagName2": {
       "type": "String",
       "metadata": {
-        "displayName": "Tag Name 2",
+        "displayName": "Required Tag Name 2",
         "description": "Name of the tag, such as 'environment'"
       }
     },
     "tagName3": {
       "type": "String",
       "metadata": {
-        "displayName": "Tag Name 3",
+        "displayName": "Required Tag Name 3",
         "description": "Name of the tag, such as 'environment'"
       }
     },
     "tagName4": {
       "type": "String",
       "metadata": {
-        "displayName": "Tag Name 4",
+        "displayName": "Required Tag Name 4",
         "description": "Name of the tag, such as 'environment'"
       }
     },
     "tagName5": {
       "type": "String",
       "metadata": {
-        "displayName": "Tag Name 5",
+        "displayName": "Required Tag Name5",
         "description": "Name of the tag, such as 'environment'"
       }
+    },
+    "effect": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect",
+        "description": "The effect determines what happens when the policy rule is evaluated to match"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny"
+      ],
+      "defaultValue": "Audit"
     }
-  }
+}
+  
