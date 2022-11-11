@@ -9,7 +9,7 @@
             "value": "shcappusage"
           },
            "tagName4": {
-            "value": "shcsecuirtycompliance"
+            "value": "shcsecuritycompliance"
           },
            "tagName5": {
             "value": "data_classification"
@@ -31,5 +31,8 @@
           },
            "tagName11": {
             "value": "value_stream"
+          },
+          "tagName12": {
+            "value": "environment"
           }
 }
