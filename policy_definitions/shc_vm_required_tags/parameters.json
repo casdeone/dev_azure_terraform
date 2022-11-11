@@ -78,6 +78,7 @@
     },
     "tagName12": {
       "type": "String",
+      "defaultValue": "environment",
       "metadata": {
         "displayName": "Tag Name12",
         "description": "SHC VM required tag"
