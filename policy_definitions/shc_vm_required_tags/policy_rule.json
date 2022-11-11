@@ -51,7 +51,7 @@
           },
           {
 
-            "field": "[concat('tags[', parameters('tagName11'), ']')]",
+            "field": "[concat('tags[', parameters('tagName12'), ']')]",
             "exists": "false"
           }
           ]
