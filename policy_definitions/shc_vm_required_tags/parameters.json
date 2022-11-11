@@ -76,6 +76,13 @@
         "description": "SHC VM required tag"
       }
     },
+    "tagName12": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name11",
+        "description": "SHC VM required tag"
+      }
+    },
     "effect": {
       "type": "String",
       "metadata": {
