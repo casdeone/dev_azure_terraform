@@ -2,8 +2,8 @@
     "if": {
       "allOf":[
           {
-            "field": "type",
-            "equals": "Microsoft.Compute/virtualMachines"
+          "field": "type",
+          "equals": "Microsoft.Compute/virtualMachines"
           },
           {
           "field": "[concat('tags[', parameters('tagName1'), ']')]",
