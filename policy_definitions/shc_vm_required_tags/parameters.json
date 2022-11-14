@@ -1,6 +1,7 @@
 {
     "tagName1": {
       "type": "String",
+      "defaultValue": "business_criticality",
       "metadata": {
         "displayName": "Required Tag Name1",
         "description": "SHC VM required tag"
@@ -8,6 +9,7 @@
     },
     "tagName2": {
       "type": "String",
+      "defaultValue":"application",
       "metadata": {
         "displayName": "Required Tag Name2",
         "description": "SHC VM required tag"
@@ -15,6 +17,7 @@
     },
     "tagName3": {
       "type": "String",
+      "defaultValue":"value_stream",
       "metadata": {
         "displayName": "Required Tag Name3",
         "description": "SHC VM required tag"
@@ -22,6 +25,7 @@
     },
     "tagName4": {
       "type": "String",
+      "defaultValue": "responsible_group_manager",
       "metadata": {
         "displayName": "Required Tag Name4",
         "description": "SHC VM required tag"
@@ -29,6 +33,7 @@
     },
     "tagName5": {
       "type": "String",
+      "defaultValue": "responsible_group_org_name",
       "metadata": {
         "displayName": "Required Tag Name5",
         "description": "SHC VM required tag"
@@ -36,6 +41,7 @@
     },
     "tagName6": {
       "type": "String",
+      "defaultValue": "deployed_by",
       "metadata": {
         "displayName": "Tag Name6",
         "description": "SHC VM required tag"
@@ -43,6 +49,7 @@
     },
     "tagName7": {
       "type": "String",
+      "defaultValue": "backup",
       "metadata": {
         "displayName": "Tag Name7",
         "description": "SHC VM required tag"
@@ -50,6 +57,7 @@
     },
     "tagName8": {
       "type": "String",
+      "defaultValue":"dns_name",
       "metadata": {
         "displayName": "Tag Name8",
         "description": "SHC VM required tag"
@@ -57,6 +65,7 @@
     },
     "tagName9": {
       "type": "String",
+      "defaultValue":"shcappusage",
       "metadata": {
         "displayName": "Tag Name9",
         "description": "SHC VM required tag"
@@ -64,6 +73,7 @@
     },
     "tagName10": {
       "type": "String",
+      "defaultValue":"shcsecuirtycompliance",
       "metadata": {
         "displayName": "Tag Name10",
         "description": "SHC VM required tag"
@@ -71,6 +81,7 @@
     },
     "tagName11": {
       "type": "String",
+      "defaultValue": "responsible_group_org_name",
       "metadata": {
         "displayName": "Tag Name11",
         "description": "SHC VM required tag"
