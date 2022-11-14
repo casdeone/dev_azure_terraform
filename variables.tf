@@ -1,19 +1,19 @@
 variable "tags" {
   type = map(string)
   default = {
-    //"business_criticality"       = "high",
+    "business_criticality"       = "high",
     "application"                = "splunk",
     "value_stream"               = "logging",
     "responsible_group_manager"  = "steven.simpauco@sharp.com",
     "responsible_group_org_name" = "dts",
-    "deplyed_by"                 = "dennis.castillo@sharp.com"
+    "deployed_by"                 = "dennis.castillo@sharp.com"
   }
 }
 
 variable "vm_tags" {
   type = map(string)
   default = {
-    #"backup              "       = "yes",
+    "backup"                    = "yes",
     "dns_name"                   = "vm.casdeone.com",
     "shcappusage"                = "imaging",
     "shcsecuirtycompliance"      = "yes",
@@ -53,4 +53,18 @@ variable "location" {
   type        = string
   description = "location"
   default     = "West US 3"
+}
+
+// variable feature flag
+
+variable "enable_feature_flag" {
+  type = number
+  description = "(optional) describe your variable"
+  default = 0
+}
+
+variable "enable_feature_flag_1" {
+  type = number
+  description = "(optional) describe your variable"
+  default = 0
 }
