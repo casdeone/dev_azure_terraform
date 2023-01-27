@@ -144,14 +144,7 @@ resource "azurerm_role_assignment" "shc_splunk_app_ra_data_reciever" {
 // /providers/Microsoft.Authorization/policyDefinitions/871b6d14-10aa-478d-b590-94f262ecfa99
 // Require a tag on resources
 
-data "azurerm_policy_definition" "shc_policy_require_tags" {
-  display_name = "Require a tag on resources"
 
-}
-data "azurerm_management_group" "mg-management" {
-  display_name = "mg-root"
-
-}
 /*
 resource "azurerm_management_group_policy_assignment" "shc_require_tags" {
   #for_each = toset(var.required_tags)
@@ -251,4 +244,12 @@ resource "azurerm_management_group_policy_assignment" "required_policy" {
     }
 PARAMS
 */
+}
+
+// assign cis_140 policy to mg root
+
+resource "azurerm_management_group_policy_assignment" "dev_cis140" {
+  name                 = "dev_cis140"
+  policy_definition_id = "/providers/Microsoft.Authorization/policySetDefinitions/c3f5c4d9-9a1d-4a99-85c0-7f93e384d5c5"
+  management_group_id  = data.azurerm_management_group.mg-management.id
 }
